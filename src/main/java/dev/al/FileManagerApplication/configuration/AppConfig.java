@@ -15,7 +15,7 @@ import java.util.Optional;
 @Configuration
 public class AppConfig implements WebMvcConfigurer {
 
-    // ✅ Enable CORS for Angular
+    // Enable CORS for Angular
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
@@ -25,19 +25,19 @@ public class AppConfig implements WebMvcConfigurer {
                 .allowCredentials(true);
     }
 
-    // ✅ Standard resolver used by Spring Boot
+    // Standard resolver used by Spring Boot
     @Bean
     public MultipartResolver multipartResolver() {
         return new StandardServletMultipartResolver();
     }
 
-    // ✅ Password encoder for user authentication
+    // Password encoder for user authentication
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    // ✅ Expose local uploaded files for downloading
+    // Expose local uploaded files for downloading
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/uploads/**")
